@@ -53,5 +53,38 @@
     (prn :alpha alpha)
     (clojure.pprint/pprint result)))
 
-(question-A-1)
-(map question-A-2 [0 0.5 1 2])
+(defn question-B-1 []
+  (let [col [2/7 3/7 6/7]
+        options [[-0.937, 0.312, 0.156]
+                 [-0.288, -0.490, 0.772]
+                 [-0.548, 0.401, 0.273]
+                 [0.312, 0.156, -0.937]]]
+    (clojure.pprint/pprint
+      [(map magnitude options)
+       (map (partial m/inner-product col) options)])))
+
+(defn question-B-3 []
+  (let [m [[1 1]
+           [2 2]
+           [3 4]]
+        x (/ (dec (m/row-count m)))
+        m (m/inner-product (m/transpose m) m)]
+    (prn x)
+    (prn m)
+    (m/mul x m)))
+
+(defn question-B-4 []
+  (let [opts [[-2, 3, -1]
+              [1, -2, 1]
+              [-1, 1, -1]
+              [-4, 2, -1]]
+        x    [1, 2, 3]]
+    (map (partial m/inner-product x) opts)))
+
+(comment
+  (question-A-1)
+  (map question-A-2 [0 0.5 1 2])
+
+  (question-B-1)
+  (question-B-3))
+(question-B-4)
