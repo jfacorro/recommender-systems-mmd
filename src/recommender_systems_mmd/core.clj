@@ -20,7 +20,7 @@
     (/ (* (magnitude x)
          (magnitude y)))))
 
-(defn problem-1 []
+(defn question-A-1 []
   (let [m [[1 2 3 4 5]
            [2 3 2 5 3]
            [5 5 5 3 2]]
@@ -34,7 +34,7 @@
       (map #(map (fn [x] (- x %1)) %2) cavgs)
       m/transpose)))
 
-(defn problem-2 [alpha]
+(defn question-A-2 [alpha]
   (let [m     [[1 0 1 0 1 (* alpha 2)]
                [1 1 0 0 1 (* alpha 6)]
                [0 1 0 1 0 (* alpha 2)]]
@@ -53,5 +53,5 @@
     (prn :alpha alpha)
     (clojure.pprint/pprint result)))
 
-(problem-1)
-(map problem-2 [0 0.5 1 2])
+(question-A-1)
+(map question-A-2 [0 0.5 1 2])
